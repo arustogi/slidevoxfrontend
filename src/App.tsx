@@ -1,38 +1,121 @@
-import { useEffect, useState } from "react";
-import type { Schema } from "../amplify/data/resource";
-import { generateClient } from "aws-amplify/data";
+// import { useEffect, useState } from "react";
+// import type { Schema } from "../amplify/data/resource";
+// import { generateClient } from "aws-amplify/data";
 
-const client = generateClient<Schema>();
+// const client = generateClient<Schema>();
+
+// function App() {
+//   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+
+//   useEffect(() => {
+//     client.models.Todo.observeQuery().subscribe({
+//       next: (data) => setTodos([...data.items]),
+//     });
+//   }, []);
+
+//   function createTodo() {
+//     client.models.Todo.create({ content: window.prompt("Todo content") });
+//   }
+
+//   return (
+//     <main>
+//       <h1>My todos</h1>
+//       <button onClick={createTodo}>+ new</button>
+//       <ul>
+//         {todos.map((todo) => (
+//           <li key={todo.id}>{todo.content}</li>
+//         ))}
+//       </ul>
+//       <div>
+//         🥳 App successfully hosted. Try creating a new todo.
+//         <br />
+//         <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
+//           Review next step of this tutorial.
+//         </a>
+//       </div>
+//     </main>
+//   );
+// }
+
+// export default App;
+
+
+import { useState } from "react";
 
 function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const [file, setFile] = useState<File | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [fileUrl, setFileUrl] = useState("");
 
-  useEffect(() => {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }, []);
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setFile(event.target.files[0]);
+      setMessage("");
+      setFileUrl("");
+    }
+  };
 
-  function createTodo() {
-    client.models.Todo.create({ content: window.prompt("Todo content") });
-  }
+  const uploadFile = async () => {
+    if (!file) {
+      alert("Please select a PDF file.");
+      return;
+    }
+
+    setUploading(true);
+    setMessage("");
+
+    try {
+      // Create a FormData object and append the file
+      const formData = new FormData();
+      formData.append("file", file);
+
+      // Send the file directly to API Gateway
+      const response = await fetch("https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/upload", {
+        method: "POST",
+        body: formData,  // Send raw file
+        headers: {
+          "Content-Type": file.type  // Ensure correct content type
+        }
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.file_url) {
+        setMessage("✅ File uploaded successfully!");
+        setFileUrl(result.file_url);
+      } else {
+        throw new Error(result.error || "Upload failed.");
+      }
+    } catch (error) {
+      console.error("Upload Error:", error);
+      setMessage("❌ File upload failed.");
+    } finally {
+      setUploading(false);
+    }
+  };
 
   return (
-    <main>
-      <h1>My todos</h1>
-      <button onClick={createTodo}>+ new</button>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
-        ))}
-      </ul>
-      <div>
-        🥳 App successfully hosted. Try creating a new todo.
-        <br />
-        <a href="https://docs.amplify.aws/react/start/quickstart/#make-frontend-updates">
-          Review next step of this tutorial.
-        </a>
-      </div>
+    <main className="container">
+      <h1>📄 Upload a PDF File</h1>
+      <p>Choose a PDF file and upload it to the cloud.</p>
+
+      <label className="file-input">
+        <input type="file" accept="application/pdf" onChange={handleFileChange} />
+        {file ? file.name : "Choose a PDF file"}
+      </label>
+
+      <button onClick={uploadFile} disabled={!file || uploading}>
+        {uploading ? "Uploading..." : "Upload PDF"}
+      </button>
+
+      {message && <p className="message">{message}</p>}
+
+      {fileUrl && (
+        <p>
+          ✅ <a href={fileUrl} target="_blank" rel="noopener noreferrer">View Uploaded File</a>
+        </p>
+      )}
     </main>
   );
 }
