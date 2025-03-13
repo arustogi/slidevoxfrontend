@@ -41,7 +41,7 @@
 
 
 import { useState } from "react";
-
+const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/upload"
 function App() {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -70,14 +70,16 @@ function App() {
       const formData = new FormData();
       formData.append("file", file);
 
-      // Send the file directly to API Gateway
-      const response = await fetch("https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/upload", {
+      const response = await fetch(API_URL, {
         method: "POST",
-        body: formData,  // Send raw file
         headers: {
-          "Content-Type": file.type  // Ensure correct content type
-        }
-      });
+            "Content-Type": "application/pdf",
+            "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx", 
+        },
+        body: file,
+        mode: "cors",
+    });
+      // Send the file directly to API Gateway
 
       const result = await response.json();
 
