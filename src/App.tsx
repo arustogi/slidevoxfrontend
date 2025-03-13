@@ -79,18 +79,25 @@ function App() {
         body: file,
         mode: "cors",
     });
-      // Send the file directly to API Gateway
+    const responseText = await response.text(); // ✅ Get raw response
+    console.log("Raw API Response:", responseText); // ✅ Debugging
 
-      const result = await response.json();
-        if (response.ok) {
-            setMessage(`✅ Upload successful! File URL: ${result.file_url}`);
-        } else {
-            setMessage(`❌ Upload failed: ${result.error || "Unknown error"}`);
-        }
+    // ✅ Ensure JSON parsing doesn't fail
+    let result;
+    try {
+        result = JSON.parse(responseText);
     } catch (error) {
-        setMessage(`⚠️ Error uploading file: ${error.message}`);
+        throw new Error("Failed to parse JSON response");
     }
 
+    if (response.ok) {
+        setMessage(`✅ Upload successful! File URL: ${result.file_url}`);
+    } else {
+        setMessage(`❌ Upload failed: ${result.error || "Unknown error"}`);
+    }
+} catch (error) {
+    setMessage(`⚠️ Error uploading file: ${error}`);
+}
     setUploading(false);
 };
 
