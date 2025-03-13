@@ -125,7 +125,7 @@ function App() {
       // formData.append("file", file);
 
       // Read file as ArrayBuffer (raw binary)
-      const fileBuffer = await file.arrayBuffer();
+      // const fileBuffer = await file.arrayBuffer();
 
       const response = await fetch(API_URL, {
         method: "POST",
@@ -133,7 +133,7 @@ function App() {
           "Content-Type": "application/pdf",
           "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
         },
-        body: fileBuffer,
+        body: file,
         mode: "cors",
       });
 
