@@ -82,20 +82,17 @@ function App() {
       // Send the file directly to API Gateway
 
       const result = await response.json();
-
-      if (response.ok && result.file_url) {
-        setMessage("✅ File uploaded successfully!");
-        setFileUrl(result.file_url);
-      } else {
-        throw new Error(result.error || "Upload failed.");
-      }
+        if (response.ok) {
+            setMessage(`✅ Upload successful! File URL: ${result.file_url}`);
+        } else {
+            setMessage(`❌ Upload failed: ${result.error || "Unknown error"}`);
+        }
     } catch (error) {
-      console.error("Upload Error:", error);
-      setMessage("❌ File upload failed.");
-    } finally {
-      setUploading(false);
+        setMessage(`⚠️ Error uploading file: ${error.message}`);
     }
-  };
+
+    setUploading(false);
+};
 
   return (
     <main className="container">
