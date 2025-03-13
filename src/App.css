@@ -1,84 +1,57 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+
+/* Full-screen hero section */
+.hero-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8f8f8, #fffaf0);
   text-align: center;
+  font-family: "Arial", sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Centered content */
+.hero-content {
+  max-width: 600px;
+  padding: 30px;
+  background: white;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
-
-/* Main container */
-.container {
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
-  text-align: center;
-  font-family: Arial, sans-serif;
-  background: #ffffff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-/* Headings */
+/* Gradient text for heading */
 h1 {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
+  font-weight: bold;
   margin-bottom: 10px;
-  color: #333;
 }
 
+.gradient-text {
+  background: linear-gradient(90deg, #6d42c7, #ff725e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
 p {
+  font-size: 1.1rem;
   color: #555;
-  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
-/* File input styling */
+/* File input box */
 .file-input {
   display: inline-block;
-  padding: 10px 15px;
-  background: #f8f8f8;
+  padding: 15px;
+  background: #f0f0f0;
   border: 2px dashed #bbb;
   cursor: pointer;
-  border-radius: 5px;
-  margin-top: 15px;
+  border-radius: 10px;
   width: 100%;
   text-align: center;
   font-size: 1rem;
   color: #333;
+  margin-bottom: 20px;
 }
 
 .file-input:hover {
@@ -90,44 +63,43 @@ p {
   display: none;
 }
 
-/* Button styling */
+/* Upload button */
 button {
-  display: block;
   width: 100%;
-  margin-top: 15px;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
+  padding: 12px;
   font-size: 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #6d42c7, #ff725e);
+  color: white;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(90deg, #5a35aa, #e05a4f);
 }
 
 button:disabled {
-  background-color: #ccc;
+  background: #ccc;
   cursor: not-allowed;
 }
 
-/* Success/Error Message */
+/* Success/Error messages */
 .message {
   margin-top: 15px;
   font-weight: bold;
   color: #2d7d46;
 }
 
+/* Error messages */
 .message.error {
   color: #d9534f;
 }
 
 /* Link Styling */
 a {
-  color: #007bff;
+  color: #6d42c7;
   text-decoration: none;
   font-weight: bold;
 }
