@@ -88,10 +88,6 @@
 // export default App;
 
 
-
-
-
-
 import { useState } from "react";
 import "./App.css";
 
@@ -121,19 +117,19 @@ function App() {
     setMessage("");
 
     try {
+      // Create a FormData object and append the file
+      const formData = new FormData();
+      formData.append("file", file);
 
-      // Convert file to Base64 for JSON transmission
-      const fileBuffer = await file.arrayBuffer();
-     
-        const response = await fetch(API_URL, {
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: {
-          // "Content-Type": "application/pdf",
-          "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
+            "Content-Type": "application/pdf",
+            "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx", 
         },
-        body: fileBuffer,
+        body: file,
         mode: "cors",
-      });
+    });
 
       const responseText = await response.text();
       console.log("Raw API Response:", responseText);
