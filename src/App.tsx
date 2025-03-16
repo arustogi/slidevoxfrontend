@@ -166,7 +166,7 @@ function App() {
           headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`,
-            "x-api-key": "YOUR_API_KEY",
+            "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
           },
           body: JSON.stringify({
             "body-json": base64File, // ✅ Ensure body format matches Lambda expectations
