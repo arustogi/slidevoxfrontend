@@ -1,14 +1,9 @@
 import { useState } from "react";
-import { useAuthenticator } from "@aws-amplify/ui-react";
-import { useNavigate } from "react-router-dom";
-import { fetchAuthSession } from "@aws-amplify/auth";
 import "./App.css";
 
 const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/upload";
 
 function App() {
-  const { user, signOut } = useAuthenticator();
-  const navigate = useNavigate();
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
@@ -32,20 +27,11 @@ function App() {
     setMessage("");
 
     try {
-      // ✅ Get Auth Session to retrieve JWT token
-      const session = await fetchAuthSession();
-      const token = session.tokens?.idToken?.toString();
-
-      if (!token) {
-        throw new Error("No authentication token found.");
-      }
-
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/pdf",
           "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
-          "Authorization": `Bearer ${token}`,
         },
         body: file,
         mode: "cors",
@@ -76,31 +62,51 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* 🔹 Navigation Bar */}
       <nav className="navbar">
         <div className="logo">SlideVox</div>
-        <button className="logout-btn" onClick={() => { signOut(); navigate("/"); }}>Sign Out</button> {/* ✅ Sign Out */}
+        <div className="nav-links">
+          <a href="#about">About</a>
+          <a href="#developers">Developers</a>
+          <a href="#login">Log In</a>
+          <button className="get-started">Get Started</button>
+        </div>
       </nav>
 
-      <div className="upload-section">
-        <h1>Upload Your PDF</h1>
-        <p>Welcome, {user?.username}!</p>
-        <label className="file-input">
-          <input type="file" accept="application/pdf" onChange={handleFileChange} />
-          {file ? file.name : "Choose a PDF file"}
-        </label>
-        <button onClick={uploadFile} disabled={!file || uploading}>
-          {uploading ? "Uploading..." : "Upload PDF"}
-        </button>
-        {message && <p className="message">{message}</p>}
-        {fileUrl && (
-          <p>
-            ✅ <a href={fileUrl} target="_blank" rel="noopener noreferrer">
-              View Uploaded File
-            </a>
-          </p>
-        )}
+      {/* 🔹 Hero Section */}
+      <div className="hero-section">
+        <div className="content">
+          <h1>
+            Upload Your PDF. <span className="highlight-text">Get It Processed.</span>
+          </h1>
+          <p>Fast, AI-powered file processing.</p>
+
+          {/* 🔹 File Upload */}
+          <label className="file-input">
+            <input type="file" accept="application/pdf" onChange={handleFileChange} />
+            {file ? file.name : "Choose a PDF file"}
+          </label>
+
+          {/* 🔹 Upload Button */}
+          <button onClick={uploadFile} disabled={!file || uploading}>
+            {uploading ? "Uploading..." : "Upload PDF"}
+          </button>
+
+          {/* 🔹 Status Message */}
+          {message && <p className="message">{message}</p>}
+
+          {/* 🔹 File URL Display */}
+          {fileUrl && (
+            <p>
+              ✅ <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                View Uploaded File
+              </a>
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
 }
+
 export default App;
