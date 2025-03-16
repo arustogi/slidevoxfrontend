@@ -118,8 +118,8 @@ function App() {
 
     try {
       // Create a FormData object and append the file
-      const formData = new FormData();
-      formData.append("file", file);
+      // const formData = new FormData();
+      // formData.append("file", file);
 
       const response = await fetch(API_URL, {
         method: "POST",
