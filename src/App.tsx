@@ -127,7 +127,7 @@ function App() {
             "Content-Type": "application/pdf",
             "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx", 
         },
-        body: file,
+        body: formData,
         mode: "cors",
     });
 
