@@ -3,54 +3,93 @@ body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #a782e0, #fff3e0);
   font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #4f46e5, #a782e0, #fff3e0);
+  color: #333;
 }
 
-/* Centered content container */
-.hero-container {
+/* 🔹 Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4f46e5;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  margin: 0 15px;
+  font-size: 1.1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #4f46e5;
+}
+
+.get-started {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.get-started:hover {
+  background: #3b36c3;
+}
+
+/* 🔹 Hero Section */
+.hero-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100vh; /* Full height */
+  text-align: center;
+  height: 100vh;
+  padding-top: 80px;
 }
 
-/* White box with shadow */
-.hero-content {
+.content {
+  background: white;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   max-width: 600px;
   width: 90%;
-  padding: 40px;
-  background: white;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
-  border-radius: 15px;
-  text-align: center;
 }
 
-/* Gradient text for heading */
 h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, #a350d1, #ff725e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.highlight-text {
+  color: #4f46e5;
 }
 
-/* Subtitle */
-p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 20px;
-}
-
-/* File input box */
+/* 🔹 File Input */
 .file-input {
   display: flex;
   justify-content: center;
@@ -71,28 +110,27 @@ p {
   background: #e8e8e8;
 }
 
-/* Hide default file input */
 .file-input input {
   display: none;
 }
 
-/* Centered Upload button */
+/* 🔹 Upload Button */
 button {
   display: block;
-  margin: 0 auto; /* Center the button */
+  margin: 0 auto;
   padding: 12px 20px;
-  width: 60%;
-  font-size: 1rem;
+  width: 100%;
+  font-size: 1.1rem;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(90deg, #a350d1, #ff725e);
+  background: #4f46e5;
   color: white;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 button:hover {
-  background: linear-gradient(90deg, #8736b7, #e05a4f);
+  background: #3b36c3;
 }
 
 button:disabled {
@@ -100,7 +138,7 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Success/Error messages */
+/* 🔹 Status Messages */
 .message {
   margin-top: 15px;
   font-weight: bold;
@@ -111,9 +149,9 @@ button:disabled {
   color: #d9534f;
 }
 
-/* Link Styling */
+/* 🔹 Link Styling */
 a {
-  color: #a350d1;
+  color: #4f46e5;
   text-decoration: none;
   font-weight: bold;
 }
