@@ -1,0 +1,26 @@
+.home-container {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+  }
+  
+  .login-btn, .get-started-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff6a00;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .hero {
+    margin-top: 50px;
+  }
+  
