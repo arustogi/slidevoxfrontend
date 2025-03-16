@@ -124,7 +124,7 @@ function App() {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
-            "Content-Type": "application/pdf",
+            //"Content-Type": "application/pdf",
             "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx", 
         },
         body: formData,
