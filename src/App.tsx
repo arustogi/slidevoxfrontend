@@ -157,7 +157,7 @@ function App() {
         method: "POST",
         headers: {
           "Content-Type": "application/pdf",
-          "x-api-key": "YOUR_API_KEY",
+          "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
           "Authorization": `Bearer ${token}`,
         },
         body: file,
