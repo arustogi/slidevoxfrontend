@@ -140,50 +140,61 @@ function App() {
       alert("Please select a PDF file.");
       return;
     }
-
+  
     setUploading(true);
     setMessage("");
-
+  
     try {
-      // ✅ Get Auth Session to retrieve JWT token
+      // ✅ Fetch Auth Session to get JWT Token
       const session = await fetchAuthSession();
       const token = session.tokens?.idToken?.toString();
-
+  
       if (!token) {
         throw new Error("No authentication token found.");
       }
-
-      const response = await fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/pdf",
-          "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
-          "Authorization": `Bearer ${token}`,
-        },
-        body: file,
-        mode: "cors",
-      });
-
-      const responseText = await response.text();
-      console.log("Raw API Response:", responseText);
-
-      let result;
-      try {
-        result = JSON.parse(responseText);
-      } catch (error) {
-        throw new Error("Failed to parse JSON response");
-      }
-
-      if (response.ok) {
-        setMessage("✅ Upload successful!");
-        setFileUrl(result.file_url);
-      } else {
-        setMessage(`❌ Upload failed: ${result.error || "Unknown error"}`);
-      }
+  
+      console.log("🛡️ Retrieved JWT Token:", token);
+  
+      // ✅ Read file content as base64
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = async () => {
+        const base64File = reader.result?.toString().split(",")[1];
+  
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+            "x-api-key": "YOUR_API_KEY",
+          },
+          body: JSON.stringify({
+            "body-json": base64File, // ✅ Ensure body format matches Lambda expectations
+          }),
+        });
+  
+        const responseText = await response.text();
+        console.log("Raw API Response:", responseText);
+  
+        let result;
+        try {
+          result = JSON.parse(responseText);
+        } catch (error) {
+          throw new Error("Failed to parse JSON response");
+        }
+  
+        if (response.ok) {
+          setMessage("✅ Upload successful!");
+          setFileUrl(result.file_url);
+        } else {
+          setMessage(`❌ Upload failed: ${result.error || "Unknown error"}`);
+        }
+      };
     } catch (error) {
+      console.error("⚠️ Error uploading file:", error);
       setMessage(`⚠️ Error uploading file: ${error}`);
     }
-
+  
     setUploading(false);
   };
 
