@@ -28,10 +28,10 @@
 
 
 
-   /* General Styles */
+  /* General Styles */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #F8FAFF;
+  background: linear-gradient(to bottom, #A88BEB, #F8FAFF);
   margin: 0;
   padding: 0;
 }
@@ -111,8 +111,8 @@ body {
 }
 
 .hero-text {
-  max-width: 500px;
-  text-align: left;
+  max-width: 600px;
+  text-align: center;
 }
 
 .hero-text h1 {
@@ -131,6 +131,7 @@ body {
   margin-top: 20px;
   display: flex;
   gap: 15px;
+  justify-content: center;
 }
 
 .primary-btn {
@@ -162,70 +163,4 @@ body {
 .secondary-btn:hover {
   background-color: #4C52FF;
   color: white;
-}
-
-/* Mobile Mockup */
-.hero-image {
-  display: flex;
-  justify-content: center;
-}
-
-.mobile-mockup {
-  width: 300px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  font-size: 14px;
-}
-
-.mobile-mockup h3 {
-  color: #4C52FF;
-  text-align: center;
-}
-
-.input-field {
-  margin: 10px 0;
-}
-
-.input-field label {
-  display: block;
-  font-weight: 500;
-  color: #4F5D75;
-}
-
-.input-field input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  margin-top: 5px;
-  font-size: 14px;
-}
-
-.verify-btn {
-  width: 100%;
-  background-color: #4C52FF;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.verify-btn:hover {
-  background-color: #3B42D0;
-}
-
-.verified-badge {
-  margin-top: 10px;
-  text-align: center;
-  background-color: #D4EDDA;
-  color: #2D3E50;
-  padding: 8px;
-  border-radius: 6px;
-  font-weight: bold;
 }
