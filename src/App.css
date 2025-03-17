@@ -34,6 +34,18 @@ body, html {
   align-items: center;
 }
 
+.logout-btn {
+  background-color: #050505; /* Same color as Get Started */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
 .nav-links a {
   text-decoration: none;
   color: #555;
