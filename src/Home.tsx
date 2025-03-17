@@ -104,9 +104,6 @@ function Home() {
         <div className="logo">SlideVox</div>
         <div className="nav-links">
           <a href="#">Products</a>
-          <a href="#">Case Studies</a>
-          <a href="#">Developers</a>
-          <a href="#">Insights</a>
           <a href="#">About</a>
         </div>
         <div className="auth-buttons">
