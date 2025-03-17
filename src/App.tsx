@@ -1,5 +1,5 @@
 import { useAuthenticator, Authenticator } from "@aws-amplify/ui-react";
-import { useNavigate } from "react-router-dom";
+
 import "./App.css";
 import { fetchAuthSession } from "@aws-amplify/auth";
 import { useEffect } from "react";
