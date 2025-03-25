@@ -2,21 +2,12 @@ import { useAuthenticator, Authenticator } from "@aws-amplify/ui-react";
 import "./App.css";
 import { useState } from "react";
 
-interface CustomAuthUser {
-  username: string;
-  attributes: {
-    email: string;
-    [key: string]: any;
-  };
-}
-
 const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/upload";
 
 function UploadPage() {
-  const { user, signOut } = useAuthenticator((context) => [context.user]);
-  const authUser = user as unknown as CustomAuthUser; // ✅ Safe explicit cast
-
+  const { signOut } = useAuthenticator();
   const [file, setFile] = useState<File | null>(null);
+  const [email, setEmail] = useState<string>("");
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
   const [fileUrl, setFileUrl] = useState("");
@@ -30,13 +21,8 @@ function UploadPage() {
   };
 
   const uploadFile = async () => {
-    if (!file) {
-      alert("Please select a PDF file.");
-      return;
-    }
-
-    if (!authUser || !authUser.attributes || !authUser.attributes.email) {
-      alert("User email not available. Ensure you're logged in.");
+    if (!file || !email) {
+      alert("Please select a PDF file and enter an email address.");
       return;
     }
 
@@ -49,7 +35,7 @@ function UploadPage() {
         headers: {
           "Content-Type": "application/pdf",
           "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
-          "x-user-email": authUser.attributes.email,
+          "x-user-email": email.trim(),
         },
         body: file,
       });
@@ -87,14 +73,21 @@ function UploadPage() {
 
       <div className="upload-section">
         <h1>Upload Your PDF</h1>
-        <p>Welcome, {authUser.username}!</p>
 
         <label className="file-input">
           <input type="file" accept="application/pdf" onChange={handleFileChange} />
           {file ? file.name : "Choose a PDF file"}
         </label>
 
-        <button onClick={uploadFile} disabled={!file || uploading}>
+        <input
+          type="email"
+          placeholder="Enter email to send PDF"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="email-input"
+        />
+
+        <button onClick={uploadFile} disabled={!file || !email || uploading}>
           {uploading ? "Uploading..." : "Upload PDF"}
         </button>
 
