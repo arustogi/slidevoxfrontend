@@ -19,35 +19,87 @@ function UploadPage() {
     }
   };
 
+  // const uploadFile = async () => {
+  //   if (!file) {
+  //     alert("Please select a PDF file.");
+  //     return;
+  //   }
+
+  //   setUploading(true);
+  //   setMessage("");
+
+  //   try {
+  //     const response = await fetch(API_URL, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/pdf",
+  //         "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx", // ✅ Keeping this for now
+  //       },
+  //       body: file,
+  //     });
+
+  //     const responseText = await response.text();
+  //     console.log("Raw API Response:", responseText);
+
+  //     let result;
+  //     try {
+  //       result = JSON.parse(responseText);
+  //     } catch (error) {
+  //       throw new Error("Failed to parse JSON response");
+  //     }
+
+  //     if (response.ok) {
+  //       setMessage("✅ Upload successful!");
+  //       setFileUrl(result.file_url);
+  //     } else {
+  //       setMessage(`❌ Upload failed: ${result.error || "Unknown error"}`);
+  //     }
+  //   } catch (error) {
+  //     console.error("⚠️ Error uploading file:", error);
+  //     setMessage(`⚠️ Error uploading file: ${error}`);
+  //   }
+
+  //   setUploading(false);
+  // };
+
+
+
+
   const uploadFile = async () => {
     if (!file) {
       alert("Please select a PDF file.");
       return;
     }
-
+  
+    if (!user || !user.attributes || !user.attributes.email) {
+      alert("User email not available. Ensure you're logged in.");
+      return;
+    }
+  
     setUploading(true);
     setMessage("");
-
+  
     try {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/pdf",
-          "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx", // ✅ Keeping this for now
+          "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
+          "x-user-email": user.attributes.email, // ✅ Include user's email as header
         },
         body: file,
       });
-
+  
       const responseText = await response.text();
       console.log("Raw API Response:", responseText);
-
+  
       let result;
       try {
         result = JSON.parse(responseText);
       } catch (error) {
         throw new Error("Failed to parse JSON response");
       }
-
+  
       if (response.ok) {
         setMessage("✅ Upload successful!");
         setFileUrl(result.file_url);
@@ -58,7 +110,7 @@ function UploadPage() {
       console.error("⚠️ Error uploading file:", error);
       setMessage(`⚠️ Error uploading file: ${error}`);
     }
-
+  
     setUploading(false);
   };
 
