@@ -14,7 +14,7 @@ const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/uploa
 
 function UploadPage() {
   const { user, signOut } = useAuthenticator((context) => [context.user]);
-  const authUser = user as CustomAuthUser; // ✅ Explicitly cast user type
+  const authUser = user as unknown as CustomAuthUser; // ✅ Safe explicit cast
 
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
