@@ -168,7 +168,6 @@
 
 
 
-
 /* Root Styles */
 body {
   font-family: 'Poppins', sans-serif;
@@ -180,7 +179,7 @@ body {
 .home-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* OK to keep if you want a full-page layout */
+  min-height: 100vh;
 }
 
 /* NAVBAR */
@@ -245,35 +244,38 @@ body {
 
 /* HERO SECTION */
 .hero {
-  /* Removed flex: 1; here to allow scrolling */
   display: flex;
-  padding: 80px 60px;
+  flex-direction: column; /* Stacked content */
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  min-height: 100vh;      /* Full viewport height */
+  padding: 60px 20px;
+  text-align: center;
 }
 
-.hero-text {
-  max-width: 600px;
-  text-align: left;
+.hero-content {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
-.hero-text h1 {
-  font-size: 42px;
+.hero-content h1 {
+  font-size: 48px;
   font-weight: bold;
   color: #2D3E50;
   margin: 0;
 }
 
-.hero-text p {
-  font-size: 18px;
+.hero-content p {
+  font-size: 20px;
   color: #4F5D75;
-  margin-top: 15px;
   line-height: 1.5;
+  margin: 0;
 }
 
 .hero-buttons {
-  margin-top: 20px;
   display: flex;
   gap: 15px;
 }
@@ -308,16 +310,16 @@ body {
   color: #fff;
 }
 
-/* Optional Hero Mockup Image */
-.hero-image .mockup-slides {
+.mockup-slides {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
+  margin-top: 20px;
 }
 
 .mockup-slides .slide {
-  width: 200px;
-  height: 120px;
+  width: 160px;
+  height: 100px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);

@@ -136,7 +136,6 @@
 
 
 
-
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
@@ -155,18 +154,22 @@ function Home() {
           <a href="#footer">Contact</a>
         </div>
         <div className="auth-buttons">
-          <button className="login-btn" onClick={() => navigate("/upload")}>Log In</button>
-          <button className="get-started-btn" onClick={() => navigate("/upload")}>Get Started</button>
+          <button className="login-btn" onClick={() => navigate("/upload")}>
+            Log In
+          </button>
+          <button className="get-started-btn" onClick={() => navigate("/upload")}>
+            Get Started
+          </button>
         </div>
       </nav>
 
       {/* Hero Section */}
       <header className="hero">
-        <div className="hero-text">
-          <h1>SlideVox: AI-Powered Slide Generation</h1>
+        <div className="hero-content">
+          <h1>THE SLIDE VOX</h1>
           <p>
-            Turn your ideas into beautiful slides in seconds. Harness the power of AI 
-            for fast, professional presentations—secure, seamless, and built for productivity.
+            The ultimate AI-powered slide creation platform. Easily transform your
+            ideas into engaging, professional presentations—instantly.
           </p>
           <div className="hero-buttons">
             <button className="primary-btn" onClick={() => navigate("/upload")}>
@@ -176,10 +179,8 @@ function Home() {
               Learn More
             </button>
           </div>
-        </div>
 
-        {/* Example Hero Image/Mockup */}
-        <div className="hero-image">
+          {/* Optional Mockup Slides Below */}
           <div className="mockup-slides">
             <div className="slide">Slide 1</div>
             <div className="slide">Slide 2</div>
@@ -231,7 +232,6 @@ function Home() {
             </ul>
             <button onClick={() => navigate("/upload")}>Sign Up</button>
           </div>
-
           <div className="pricing-card">
             <h3>Pro</h3>
             <p>$9.99 / mo</p>
@@ -242,7 +242,6 @@ function Home() {
             </ul>
             <button onClick={() => navigate("/upload")}>Start Free Trial</button>
           </div>
-
           <div className="pricing-card">
             <h3>Enterprise</h3>
             <p>Custom</p>
