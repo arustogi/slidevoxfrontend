@@ -1,3 +1,5 @@
+
+
 /* Full-page gradient background */
 body, html {
   height: 100%;
@@ -13,7 +15,7 @@ body, html {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10%;
+  padding: 10px 5%;
   background: #ffffff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -29,84 +31,47 @@ body, html {
   color: #4f46e5;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
+/* Make the sign-out button match the style of the site */
 .login-btn {
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: #4F5D75;
-}
-
-.logout-btn {
-  background-color: #050505; /* Same color as Get Started */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #555;
-  margin: 0 15px;
-  font-size: 1.1rem;
-  transition: color 0.3s ease-in-out;
-}
-
-.nav-links a:hover {
-  color: #4f46e5;
-}
-
-.get-started {
   background: #4f46e5;
-  color: white;
+  color: #fff;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background-color 0.3s ease;
+  margin-left: 1rem;
 }
 
-.get-started:hover {
+.login-btn:hover {
   background: #3b36c3;
 }
 
-/* 🔹 Hero Section */
-.hero-section {
+/* 🔹 Main App Container */
+.app-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100vh;
-  padding-top: 80px;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Leaves space for fixed navbar so content isn't hidden behind it */
+  padding-top: 70px;
 }
 
-.content {
-  background: white;
-  padding: 50px;
+/* 🔹 Upload Section */
+.upload-section {
+  /* Centers horizontally and adds top margin to position below the navbar */
+  margin: 120px auto 0 auto;
+  max-width: 500px;
+  width: 90%;
+  background: #fff;
+  padding: 30px;
   border-radius: 15px;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-  max-width: 600px;
-  width: 90%;
+  text-align: center;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.highlight-text {
-  color: #4f46e5;
+.upload-section h1 {
+  margin-bottom: 20px;
 }
 
 /* 🔹 File Input */
@@ -132,6 +97,17 @@ h1 {
 
 .file-input input {
   display: none;
+}
+
+/* 🔹 Email Input */
+.email-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
 }
 
 /* 🔹 Upload Button */
