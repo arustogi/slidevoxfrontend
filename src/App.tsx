@@ -35,7 +35,7 @@ function UploadPage() {
         headers: {
           "Content-Type": "application/pdf",
           "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
-          "x-user-email": email.trim(),
+          
         },
         body: file,
       });
