@@ -68,7 +68,7 @@ function UploadPage() {
     <div className="app-container">
       <nav className="navbar">
         <div className="logo">SlideVox</div>
-        <button className="logout-btn" onClick={signOut}>Sign Out</button>
+        <button className="login-btn" onClick={signOut}>Sign Out</button>
       </nav>
 
       <div className="upload-section">

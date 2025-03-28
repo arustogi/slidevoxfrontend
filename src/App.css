@@ -34,6 +34,14 @@ body, html {
   align-items: center;
 }
 
+.login-btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #4F5D75;
+}
+
 .logout-btn {
   background-color: #050505; /* Same color as Get Started */
   color: white;
