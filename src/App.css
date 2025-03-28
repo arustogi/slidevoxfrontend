@@ -8,51 +8,8 @@ body, html {
   color: #333;
 }
 
-/* 🔹 Navigation Bar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 10%;
-  background: #ffffff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
-}
 
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #4f46e5;
-}
 
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
-.login-btn {
-  background: none;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: #4F5D75;
-}
-
-.logout-btn {
-  background-color: #050505; /* Same color as Get Started */
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
 .nav-links a {
   text-decoration: none;
@@ -60,10 +17,6 @@ body, html {
   margin: 0 15px;
   font-size: 1.1rem;
   transition: color 0.3s ease-in-out;
-}
-
-.nav-links a:hover {
-  color: #4f46e5;
 }
 
 .get-started {
@@ -178,4 +131,45 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Match the login/get-started style */
+.login-btn {
+  background-color: #6b4eff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: fit-content;
+  max-width: 200px;
+}
+
+.login-btn:hover {
+  background-color: #5940db;
+}
+
+/* Optional fix for nav layout */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
