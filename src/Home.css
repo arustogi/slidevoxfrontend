@@ -248,6 +248,7 @@ body {
   flex-direction: column; /* Stacked content */
   justify-content: center;
   align-items: center;
+  padding-top: 70px;
   min-height: 100vh;      /* Full viewport height */
   padding: 60px 20px;
   text-align: center;
