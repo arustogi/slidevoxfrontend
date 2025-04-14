@@ -154,44 +154,49 @@ function UploadPage() {
       alert("Please select a PDF file and enter an email address.");
       return;
     }
-
+  
     setUploading(true);
     setMessage("");
-
+  
     try {
-      const response = await fetch(API_URL, {
+      // Step 1: Get a pre-signed URL from Lambda via API Gateway
+      const presignRes = await fetch(API_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/pdf",
+          "Content-Type": "application/json",
           "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
           "x-user-email": email.trim(),
         },
+        body: JSON.stringify({}) // You can send file metadata here later
+      });
+  
+      const { upload_url, file_key } = await presignRes.json();
+      console.log("🧾 Received Pre-Signed URL:", upload_url);
+  
+      // Step 2: Upload file directly to S3 using the pre-signed URL
+      const s3UploadRes = await fetch(upload_url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/pdf",
+        },
         body: file,
       });
-
-      const responseText = await response.text();
-      console.log("Raw API Response:", responseText);
-
-      let result;
-      try {
-        result = JSON.parse(responseText);
-      } catch (error) {
-        throw new Error("Failed to parse JSON response");
-      }
-
-      if (response.ok) {
+  
+      if (s3UploadRes.ok) {
         setMessage("✅ Upload successful!");
-        setFileUrl(result.file_url);
+        const fileUrl = `https://slidevox-pdf-storage.s3.amazonaws.com/${file_key}`;
+        setFileUrl(fileUrl);
       } else {
-        setMessage(`❌ Upload failed: ${result.error || "Unknown error"}`);
+        throw new Error("❌ Failed to upload to S3");
       }
     } catch (error) {
       console.error("⚠️ Error uploading file:", error);
-      setMessage(`⚠️ Error uploading file: ${error}`);
+      setMessage(`⚠️ Upload error: ${error}`);
     } finally {
       setUploading(false);
     }
   };
+  
 
   return (
     <div className="app-container">
@@ -204,7 +209,12 @@ function UploadPage() {
         <h1>Upload Your PDF</h1>
 
         <label className="file-input">
-          <input type="file" accept="application/pdf" onChange={handleFileChange} />
+        <input
+          type="file"
+          accept="application/pdf"
+          onChange={handleFileChange}
+          disabled={uploading}
+        />
           {file ? file.name : "Choose a PDF file"}
         </label>
 
@@ -214,6 +224,7 @@ function UploadPage() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="email-input"
+          disabled={uploading}
         />
 
         <button onClick={uploadFile} disabled={!file || !email || uploading}>
