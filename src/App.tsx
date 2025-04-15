@@ -130,7 +130,6 @@ import "./App.css";
 import { useState } from "react";
 
 const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/generate-presigned-url";
-
 function UploadPage() {
   const { signOut } = useAuthenticator();
   const [file, setFile] = useState<File | null>(null);
@@ -173,14 +172,15 @@ function UploadPage() {
       const { upload_url, file_key } = await presignRes.json();
       console.log("🧾 Received Pre-Signed URL:", upload_url);
   
-      // Step 2: Upload file directly to S3 using the pre-signed URL
-      const s3UploadRes = await fetch(upload_url, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/pdf",
-        },
-        body: file,
-      });
+     // Step 2: Upload file directly to S3 using the pre-signed URL
+     const s3UploadRes = await fetch(upload_url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/pdf",
+        "x-amz-meta-user_email": email.trim(),  // this line is required
+      },
+      body: file,
+    });
   
       if (s3UploadRes.ok) {
         setMessage("✅ Upload successful!");
