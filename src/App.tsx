@@ -129,7 +129,7 @@ import { useAuthenticator, Authenticator } from "@aws-amplify/ui-react";
 import "./App.css";
 import { useState } from "react";
 
-const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/upload";
+const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/generate-presigned-url";
 
 function UploadPage() {
   const { signOut } = useAuthenticator();
