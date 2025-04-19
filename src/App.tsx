@@ -184,6 +184,17 @@ function UploadPage() {
         setMessage("✅ Upload successful!");
         const fileUrl = `https://slidevox-pdf-storage.s3.amazonaws.com/${file_key}`;
         setFileUrl(fileUrl);
+        await fetch("https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/submit-metadata", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx"
+          },
+          body: JSON.stringify({
+            file_key: file_key,
+            email: email.trim()
+          })
+        });
       } else {
         throw new Error("❌ Failed to upload to S3");
       }
