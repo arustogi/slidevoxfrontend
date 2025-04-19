@@ -149,7 +149,7 @@ function UploadPage() {
 
   // Handle file upload
   const uploadFile = async () => {
-    if (!file || !email) {
+    if (!file ) {
       alert("Please select a PDF file and enter an email address.");
       return;
     }
@@ -164,7 +164,6 @@ function UploadPage() {
         headers: {
           "Content-Type": "application/json",
           "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
-          "x-user-email": email.trim(),
         },
         body: JSON.stringify({}) // You can send file metadata here later
       });
@@ -177,7 +176,6 @@ function UploadPage() {
       method: "PUT",
       headers: {
         "Content-Type": "application/pdf",
-        "x-amz-meta-user_email": email.trim(),  // this line is required
       },
       body: file,
     });
