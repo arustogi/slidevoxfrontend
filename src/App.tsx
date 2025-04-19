@@ -241,6 +241,14 @@ function UploadPage() {
         </button>
 
         {message && <p className="message">{message}</p>}
+
+        {fileUrl && (
+          <p>
+            ✅ <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+              View Uploaded File
+            </a>
+          </p>
+        )}
       </div>
     </div>
   );
