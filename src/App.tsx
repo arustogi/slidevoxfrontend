@@ -260,7 +260,7 @@ function UploadPage() {
 
 function App() {
   return (
-    <Authenticator>
+    <Authenticator socialProviders={['google']}>
       <UploadPage />
     </Authenticator>
   );
