@@ -131,12 +131,17 @@ import { useState } from "react";
 
 const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/generate-presigned-url";
 function UploadPage() {
-  const { signOut } = useAuthenticator();
+  const { signOut, user } = useAuthenticator();
+  const email = user?.signInDetails?.loginId;
+
+
   const [file, setFile] = useState<File | null>(null);
-  const [email, setEmail] = useState<string>("");
+  //const [email, setEmail] = useState<string>("");
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
   const [fileUrl, setFileUrl] = useState("");
+  console.log("user", user);
+  console.log("email", user?.signInDetails?.loginId);
 
   // Handle file selection
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -149,8 +154,8 @@ function UploadPage() {
 
   // Handle file upload
   const uploadFile = async () => {
-    if (!file ) {
-      alert("Please select a PDF file and enter an email address.");
+    if (!file || !email) {
+      alert("Please select a PDF file and ensure you're signed in.");
       return;
     }
   
@@ -179,7 +184,6 @@ function UploadPage() {
       },
       body: file,
     });
-  
       if (s3UploadRes.ok) {
         setMessage("✅ Upload successful!");
         const fileUrl = `https://slidevox-pdf-storage.s3.amazonaws.com/${file_key}`;
@@ -227,16 +231,16 @@ function UploadPage() {
           {file ? file.name : "Choose a PDF file"}
         </label>
 
-        <input
+        {/* <input
           type="email"
           placeholder="Enter email to send PDF"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="email-input"
           disabled={uploading}
-        />
+        /> */}
 
-        <button onClick={uploadFile} disabled={!file || !email || uploading}>
+        <button onClick={uploadFile} disabled={!file || uploading}>
           {uploading ? "Uploading..." : "Upload PDF"}
         </button>
 
