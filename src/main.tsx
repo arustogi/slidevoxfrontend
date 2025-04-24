@@ -17,8 +17,8 @@ Amplify.configure({
         oauth: {
           domain: "slidevox-auth.auth.us-east-2.amazoncognito.com",
           scopes: ["email", "openid", "profile"],
-          redirectSignIn: ["http://localhost:3000/"],
-          redirectSignOut: ["http://localhost:3000/"],
+          redirectSignIn: ["https://theslidevox.com/upload"],
+          redirectSignOut: ["https://theslidevox.com/"],
           responseType: "code" as const 
         }
       }
