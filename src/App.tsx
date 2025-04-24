@@ -127,7 +127,8 @@
 
 import { useAuthenticator, Authenticator } from "@aws-amplify/ui-react";
 import "./App.css";
-import {  fetchUserAttributes } from "aws-amplify/auth";
+import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
+
 import { useState, useEffect } from "react";
 
 const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/generate-presigned-url";
@@ -139,18 +140,28 @@ function UploadPage() {
   const [message, setMessage] = useState("");
   const [fileUrl, setFileUrl] = useState("");
 
-  useEffect(() => {
-    const getEmail = async () => {
-      try {
-        const attributes = await fetchUserAttributes();
-        console.log("User attributes:", attributes);
-        setEmail(attributes.email || null);
-      } catch (err) {
-        console.error("Failed to get user attributes", err);
-      }
-    };
-    getEmail();
-  }, []);
+useEffect(() => {
+  const fetchEmail = async () => {
+    try {
+      const user = await getCurrentUser();
+      const session = await fetchAuthSession();
+
+      console.log("User object:", user);
+      console.log("Session:", session);
+
+      // Check user attributes or decode tokens here
+      const idToken = (await fetchAuthSession()).tokens?.idToken;
+      const payload = idToken?.payload;
+      setEmail(String(payload?.email ?? ""));
+
+    } catch (err) {
+      console.error("Failed to get current user or session", err);
+    }
+  };
+
+  fetchEmail();
+}, []);
+
 
   // Handle file selection
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
