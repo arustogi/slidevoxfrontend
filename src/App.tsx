@@ -263,6 +263,7 @@ function App() {
     <Authenticator socialProviders={['google']}>
       <UploadPage />
     </Authenticator>
+
   );
 }
 
