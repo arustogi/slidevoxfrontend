@@ -127,21 +127,30 @@
 
 import { useAuthenticator, Authenticator } from "@aws-amplify/ui-react";
 import "./App.css";
-import { useState } from "react";
+import {  fetchUserAttributes } from "aws-amplify/auth";
+import { useState, useEffect } from "react";
 
 const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/generate-presigned-url";
 function UploadPage() {
-  const { signOut, user } = useAuthenticator();
-  const email = user?.signInDetails?.loginId;
-
-
+  const { signOut } = useAuthenticator();
+  const [email, setEmail] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
-  //const [email, setEmail] = useState<string>("");
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
   const [fileUrl, setFileUrl] = useState("");
-  console.log("user", user);
-  console.log("email", user?.signInDetails?.loginId);
+
+  useEffect(() => {
+    const getEmail = async () => {
+      try {
+        const attributes = await fetchUserAttributes();
+        console.log("User attributes:", attributes);
+        setEmail(attributes.email || null);
+      } catch (err) {
+        console.error("Failed to get user attributes", err);
+      }
+    };
+    getEmail();
+  }, []);
 
   // Handle file selection
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
