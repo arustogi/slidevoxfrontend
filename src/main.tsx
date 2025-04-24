@@ -32,7 +32,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <Router>
       <Routes>
         <Route path="/" element={<Home />} /> {/* Home Screen */}
-        <Route path="/upload" element={<Authenticator><App /></Authenticator>} /> {/* Protected Upload Page */}
+        <Route path="/upload" element={<App />} />
       </Routes>
     </Router>
   </React.StrictMode>
