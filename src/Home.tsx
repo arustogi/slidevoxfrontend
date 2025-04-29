@@ -174,29 +174,6 @@ function Home() {
       </section>
 
       {/* Hero Section */}
-      <header className="hero">
-        <div className="hero-content">
-          <h1>THE SLIDE VOX</h1>
-          <p>
-            The ultimate AI-powered slide creation platform. Easily transform your ideas into engaging, professional presentations—instantly.
-          </p>
-          <div className="hero-buttons">
-            <button className="primary-btn" onClick={() => navigate("/upload")}>
-              Try it for Free
-            </button>
-            <button className="secondary-btn">
-              Learn More
-            </button>
-          </div>
-
-          {/* Optional Mockup Slides */}
-          <div className="mockup-slides">
-            <div className="slide">Slide 1</div>
-            <div className="slide">Slide 2</div>
-            <div className="slide">Slide 3</div>
-          </div>
-        </div>
-      </header>
 
       {/* Features Section (Why SlideVox?) */}
       <section className="features" id="features">
