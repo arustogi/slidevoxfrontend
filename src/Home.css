@@ -1,10 +1,10 @@
 
 /* Root Styles */
 body {
-  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom, #A88BEB, #F8FAFF);
+  background: #ffffff;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .home-container {
@@ -94,7 +94,7 @@ body {
 /* HERO SECTION */
 .hero {
   position: relative;
-  height: 100vh;
+  height: 100vh; /* full screen height */
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -106,6 +106,9 @@ body {
   background: rgba(0, 0, 0, 0.5); /* Darken the background slightly */
   width: 100%;
   height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
