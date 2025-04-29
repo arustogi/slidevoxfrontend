@@ -135,13 +135,8 @@
 
 
 
-
-
-
-
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-import backgroundImage from "./assets/background.jpg";
 
 function Home() {
   const navigate = useNavigate();
@@ -167,32 +162,34 @@ function Home() {
         </div>
       </nav>
 
-      {/* Splash / Title Page Section */}
-      
-
       {/* Hero Section */}
-      <header
-        className="hero"
-        style={{
-          backgroundImage: `url(${backgroundImage})` 
-          }}>
+      <header className="hero">
         <div className="hero-overlay">
           <div className="hero-content">
-            <h1 className="hero-title">Transform Your PDFs into Stunning Presentations</h1>
-            <p className="hero-subtitle">AI-powered, professional, and lightning fast. Slide creation has never been easier.</p>
+            <h1 className="hero-title">
+              Transform Your PDFs <br /> into Stunning Slides
+            </h1>
+            <p className="hero-subtitle">
+              AI-powered. Lightning fast. Present like a pro in seconds.
+            </p>
             <div className="hero-buttons">
               <button className="primary-btn" onClick={() => navigate("/upload")}>
                 Try It Free
               </button>
               <button className="secondary-btn">Learn More</button>
             </div>
+
+            {/* Mockup Slide Preview */}
+            <div className="mockup-slides">
+              <div className="slide">Slide 1</div>
+              <div className="slide">Slide 2</div>
+              <div className="slide">Slide 3</div>
+            </div>
           </div>
         </div>
       </header>
 
-
-
-      {/* Features Section (Why SlideVox?) */}
+      {/* Features Section */}
       <section className="features" id="features">
         <h2>Why SlideVox?</h2>
         <div className="features-grid">
@@ -202,17 +199,23 @@ function Home() {
           </div>
           <div className="feature-card">
             <h3>Professional Designs</h3>
-            <p>Choose from a variety of sleek templates tailored to your needs.</p>
+            <p>Choose from sleek templates tailored to your content.</p>
           </div>
           <div className="feature-card">
             <h3>Collaboration</h3>
-            <p>Work with your team in real-time for faster feedback and iteration.</p>
+            <p>Work with your team in real-time and gather feedback instantly.</p>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      
+      {/* Testimonials */}
+      <section className="testimonials" id="testimonials">
+        <h2>What Our Users Say</h2>
+        <div className="testimonial-card">
+          <p>"SlideVox saved me hours! The slides are beautiful and on-brand."</p>
+          <span>- Alex J., Marketing Specialist</span>
+        </div>
+      </section>
 
       {/* Pricing Section */}
       <section className="pricing" id="pricing">
@@ -227,12 +230,12 @@ function Home() {
             </ul>
             <button onClick={() => navigate("/upload")}>Sign Up</button>
           </div>
-          <div className="pricing-card">
+          <div className="pricing-card best-value">
             <h3>Pro</h3>
             <p>$9.99 / mo</p>
             <ul>
               <li>Unlimited slides</li>
-              <li>Advanced templates</li>
+              <li>Premium templates</li>
               <li>No watermark</li>
             </ul>
             <button onClick={() => navigate("/upload")}>Start Free Trial</button>
@@ -241,8 +244,8 @@ function Home() {
             <h3>Enterprise</h3>
             <p>Custom</p>
             <ul>
-              <li>Custom branding</li>
               <li>Team collaboration</li>
+              <li>Custom branding</li>
               <li>Dedicated support</li>
             </ul>
             <button>Contact Us</button>
@@ -250,7 +253,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Footer Section */}
+      {/* Footer */}
       <footer className="footer" id="footer">
         <div className="footer-content">
           <h3>SlideVox</h3>

@@ -92,52 +92,60 @@ body {
 }
 
 /* HERO SECTION */
+/* HERO SECTION UPDATE */
 .hero {
-  position: relative;
-  height: 100vh; /* full screen height */
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.5); /* Darken the background slightly */
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.hero-content {
-  text-align: center;
-  color: #ffffff;
-  padding: 20px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  animation: fadeInUp 1.5s ease;
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  margin-bottom: 20px;
-  animation: fadeInDown 1s ease;
+  color: #a18cd1; 
+  background: linear-gradient(to right, #3575bb, #7090a7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
-  font-weight: 400;
   margin-bottom: 30px;
-  animation: fadeInUp 1.2s ease;
+  color: #e0e0e0;
 }
 
-.hero-buttons {
+/* Slide preview */
+.mockup-slides {
   display: flex;
-  gap: 20px;
   justify-content: center;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.mockup-slides .slide {
+  width: 160px;
+  height: 100px;
+  background: #ffffff;
+  color: #2D3E50;
+  border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Pro Pricing Highlight */
+.pricing-card.best-value {
+  border: 2px solid #4f46e5;
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.2);
+  transform: scale(1.03);
 }
 
 .primary-btn, .secondary-btn {
@@ -187,25 +195,7 @@ body {
   }
 }
 
-.mockup-slides {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-top: 20px;
-}
 
-.mockup-slides .slide {
-  width: 160px;
-  height: 100px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #4F5D75;
-  font-weight: 600;
-}
 
 /* FEATURES SECTION */
 .features {
