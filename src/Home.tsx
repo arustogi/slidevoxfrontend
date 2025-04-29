@@ -141,6 +141,7 @@
 
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import backgroundImage from "./assets/background.jpg";
 
 function Home() {
   const navigate = useNavigate();
@@ -174,6 +175,30 @@ function Home() {
       </section>
 
       {/* Hero Section */}
+      <header
+        className="hero"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="hero-overlay">
+          <div className="hero-content">
+            <h1 className="hero-title">Transform Your PDFs into Stunning Presentations</h1>
+            <p className="hero-subtitle">AI-powered, professional, and lightning fast. Slide creation has never been easier.</p>
+            <div className="hero-buttons">
+              <button className="primary-btn" onClick={() => navigate("/upload")}>
+                Try It Free
+              </button>
+              <button className="secondary-btn">Learn More</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+
 
       {/* Features Section (Why SlideVox?) */}
       <section className="features" id="features">
@@ -195,15 +220,7 @@ function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonials" id="testimonials">
-        <h2>What Our Users Say</h2>
-        <div className="testimonial-card">
-          <p>
-            "SlideVox saved me hours! The AI-generated slides look professional and on-brand."
-          </p>
-          <span>- Alex J., Marketing Specialist</span>
-        </div>
-      </section>
+      
 
       {/* Pricing Section */}
       <section className="pricing" id="pricing">

@@ -93,71 +93,98 @@ body {
 
 /* HERO SECTION */
 .hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-image: url('https://images.unsplash.com/photo-1581091012184-7f03acb39521?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column; /* Stacked content */
-  justify-content: center;
   align-items: center;
-  padding-top: 70px;
-  min-height: 100vh;      /* Full viewport height */
-  padding: 60px 20px;
-  text-align: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Darken the background slightly */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-content {
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
 }
 
-.hero-content h1 {
-  font-size: 48px;
-  font-weight: bold;
-  color: #2D3E50;
-  margin: 0;
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  animation: fadeInDown 1s ease;
 }
 
-.hero-content p {
-  font-size: 20px;
-  color: #4F5D75;
-  line-height: 1.5;
-  margin: 0;
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  animation: fadeInUp 1.2s ease;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 15px;
+  gap: 20px;
+  justify-content: center;
 }
 
-.primary-btn,
-.secondary-btn {
-  padding: 12px 20px;
+.primary-btn, .secondary-btn {
+  padding: 12px 24px;
+  font-size: 1.1rem;
   border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
   border: none;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
 }
 
 .primary-btn {
-  background-color: #4C52FF;
-  color: #fff;
-}
-
-.primary-btn:hover {
-  background-color: #3B42D0;
+  background: #4f46e5;
+  color: white;
 }
 
 .secondary-btn {
-  background-color: #fff;
-  border: 2px solid #4C52FF;
-  color: #4C52FF;
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: white;
 }
 
-.secondary-btn:hover {
-  background-color: #4C52FF;
-  color: #fff;
+.primary-btn:hover, .secondary-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Fade in animations */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mockup-slides {
