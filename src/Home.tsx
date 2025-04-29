@@ -168,11 +168,7 @@ function Home() {
       </nav>
 
       {/* Splash / Title Page Section */}
-      <section className="splash">
-        <div className="splash-content">
-          <h1>SLIDEVOX - convert your pdf to a ppt</h1>
-        </div>
-      </section>
+      
 
       {/* Hero Section */}
       <header
