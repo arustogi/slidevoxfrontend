@@ -178,12 +178,8 @@ function Home() {
       <header
         className="hero"
         style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+          backgroundImage: `url(${backgroundImage})` 
+          }}>
         <div className="hero-overlay">
           <div className="hero-content">
             <h1 className="hero-title">Transform Your PDFs into Stunning Presentations</h1>
