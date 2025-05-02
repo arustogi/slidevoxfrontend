@@ -92,33 +92,38 @@ body {
 }
 
 /* HERO SECTION */
-/* HERO SECTION UPDATE */
 .hero {
-  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
-  height: 100vh;
+  min-height: 90vh;
+  background: radial-gradient(circle at 50% 20%, #10141f, #1a1f2b);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  background-size: cover;
-  background-position: center;
-  animation: fadeInUp 1.5s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-title {
+.hero-title.neon-text {
   font-size: 3.5rem;
-  font-weight: 800;
-  color: #a18cd1; 
-  background: linear-gradient(to right, #3575bb, #7090a7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 0 10px #4f46e5, 0 0 20px #7f71eb;
 }
 
-.hero-subtitle {
+.hero-subtitle.animated-text {
   font-size: 1.5rem;
-  margin-bottom: 30px;
-  color: #e0e0e0;
+  margin: 20px 0;
+  color: #cbd5e0;
+  animation: fadeIn 1.2s ease-in-out;
 }
+
+.mockup-preview img {
+  margin-top: 40px;
+  width: 80%;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
 
 /* Slide preview */
 .mockup-slides {
@@ -158,18 +163,17 @@ body {
 }
 
 .primary-btn {
-  background: #4f46e5;
-  color: white;
+  background: #6A5AE0;
 }
-
+.primary-btn:hover {
+  background: #5146c2;
+}
 .secondary-btn {
-  background: transparent;
-  border: 2px solid #ffffff;
-  color: white;
+  border: 2px solid #6A5AE0;
+  color: #6A5AE0;
 }
-
-.primary-btn:hover, .secondary-btn:hover {
-  transform: scale(1.05);
+.secondary-btn:hover {
+  background: #f0f0ff;
 }
 
 /* Fade in animations */
@@ -329,8 +333,10 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Full viewport height */
-  background: linear-gradient(135deg, #4f46e5, #a782e0, #fff3e0);  /* Example background */
-  padding-top: 70px;  /* Adjust if navbar overlaps */
+  background: linear-gradient(135deg, #F6F8FF, #E4E9FF);
+  color: #1a1a1a;
+/* Example background */
+  padding-top: 200px;  /* Adjust if navbar overlaps */
   margin-top: 70px;
 }
 

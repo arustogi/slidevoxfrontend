@@ -137,7 +137,6 @@
 
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
-
 function Home() {
   const navigate = useNavigate();
 
@@ -161,33 +160,33 @@ function Home() {
           </button>
         </div>
       </nav>
+      
+
 
       {/* Hero Section */}
-      <header className="hero">
+
+      <header className="hero" id="hero">
         <div className="hero-overlay">
           <div className="hero-content">
-            <h1 className="hero-title">
-              Transform Your PDFs <br /> into Stunning Slides
+            <h1 className="hero-title neon-text">
+              Instantly Convert PDFs to Presentations
             </h1>
-            <p className="hero-subtitle">
-              AI-powered. Lightning fast. Present like a pro in seconds.
+            <p className="hero-subtitle animated-text">
+              Your AI slide assistant, built for speed and style.
             </p>
             <div className="hero-buttons">
-              <button className="primary-btn" onClick={() => navigate("/upload")}>
-                Try It Free
-              </button>
-              <button className="secondary-btn">Learn More</button>
+              <button className="primary-btn" onClick={() => navigate("/upload")}>Try It Free</button>
+              <button className="secondary-btn">Watch Demo</button>
             </div>
-
-            {/* Mockup Slide Preview */}
-            <div className="mockup-slides">
-              <div className="slide">Slide 1</div>
-              <div className="slide">Slide 2</div>
-              <div className="slide">Slide 3</div>
+            <div className="mockup-preview">
+              <img src="/assets/PDFAnimation.gif" alt="Slide Preview" />
             </div>
           </div>
         </div>
       </header>
+
+
+          
 
       {/* Features Section */}
       <section className="features" id="features">
