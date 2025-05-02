@@ -186,7 +186,6 @@ function Home() {
       </header>
 
 
-          
 
       {/* Features Section */}
       <section className="features" id="features">
