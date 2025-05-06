@@ -1,16 +1,62 @@
+/* === index.css === */
+
+/* Global Reset */
 body {
-  background: #f9fafb;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefc;
+  color: #1f2937;
 }
 
+/* Container Defaults */
+main {
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+/* Button Styling */
 button {
-  background-color: #2563eb;
-  color: white;
+  border-radius: 6px;
   border: none;
   padding: 10px 20px;
   font-size: 1rem;
-  border-radius: 6px;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: #bada55;
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #aac944;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Simple Link Styling */
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #2563eb;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Unstyled UL (for menus, feature lists, etc.) */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 8px 0;
 }

@@ -238,42 +238,56 @@ useEffect(() => {
         <button className="login-btn" onClick={signOut}>Sign Out</button>
       </nav>
 
-      <div className="upload-section">
-        <h1>Upload Your PDF</h1>
+      <main>
+        <div className="hero">
+          <div className="hero-text">
+            <h1 className="hero-title neon-text">Turn PDFs into Presentations</h1>
+            <p className="hero-subtitle animated-text">
+              Smart, fast, and on-brand — SlideVox transforms your content instantly.
+            </p>
+            <button
+              className="primary-btn"
+              onClick={() =>
+                document.querySelector(".upload-section")?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Get Started
+            </button>
+          </div>
+          <div className="hero-img">
+            <img src="/hero-graphic.png" alt="Presentation mockup" />
+          </div>
+        </div>
 
-        <label className="file-input">
-        <input
-          type="file"
-          accept="application/pdf"
-          onChange={handleFileChange}
-          disabled={uploading}
-        />
-          {file ? file.name : "Choose a PDF file"}
-        </label>
+        <div className="upload-section">
+          <h1>Upload Your PDF</h1>
 
-        {/* <input
-          type="email"
-          placeholder="Enter email to send PDF"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="email-input"
-          disabled={uploading}
-        /> */}
+          <label className="file-input">
+            <input
+              type="file"
+              accept="application/pdf"
+              onChange={handleFileChange}
+              disabled={uploading}
+            />
+            {file ? file.name : "Choose a PDF file"}
+          </label>
 
-        <button onClick={uploadFile} disabled={!file || uploading}>
-          {uploading ? "Uploading..." : "Upload PDF"}
-        </button>
+          <button onClick={uploadFile} disabled={!file || uploading}>
+            {uploading ? "Uploading..." : "Upload PDF"}
+          </button>
 
-        {message && <p className="message">{message}</p>}
+          {message && <p className="message">{message}</p>}
 
-        {fileUrl && (
-          <p>
-            ✅ <a href={fileUrl} target="_blank" rel="noopener noreferrer">
-              View Uploaded File
-            </a>
-          </p>
-        )}
-      </div>
+          {fileUrl && (
+            <p>
+              ✅{" "}
+              <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                View Uploaded File
+              </a>
+            </p>
+          )}
+        </div>
+      </main>
     </div>
   );
 }
