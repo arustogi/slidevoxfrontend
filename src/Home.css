@@ -16,10 +16,24 @@ body {
   align-items: center;
   padding: 120px 10% 60px;
   background-color: #f3fdf0;
+  gap: 40px;
 }
 
 .hero-text {
+  flex: 1;
   max-width: 50%;
+}
+
+.hero-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
 
 .hero-title.neon-text {
@@ -59,7 +73,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 30px;
+  gap: 40px;
   padding: 60px 10%;
 }
 
@@ -128,7 +142,7 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 24px; /* Adds spacing between links */
+  gap: 32px; /* Adds spacing between links */
 }
 
 .nav-links a {

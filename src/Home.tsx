@@ -27,24 +27,39 @@ function Home() {
 
 
       {/* Hero Section */}
-
+{/* 
       <header className="hero" id="hero">
         <div className="hero-overlay">
           <div className="hero-content">
             <h1 className="hero-title neon-text">
-              Instantly Convert PDFs to Presentations
+              Convert PDFs to Presentations and Videos
             </h1>
             <p className="hero-subtitle animated-text">
               Your AI slide assistant, built for speed and style.
             </p>
             <div className="hero-buttons">
               <button className="primary-btn" onClick={() => navigate("/upload")}>Get Started</button>
-              <button className="secondary-btn">Watch Demo</button>
-            </div>
-            <div className="mockup-preview">
-              <img src="/assets/PDFAnimation.gif" alt="Slide Preview" />
             </div>
           </div>
+        </div>
+      </header> */}
+
+
+       {/* Hero Section */}
+       <header className="hero" id="hero">
+        <div className="hero-text">
+          <h1 className="hero-title neon-text">
+            Instantly Convert PDFs to Presentations
+          </h1>
+          <p className="hero-subtitle animated-text">
+            Your AI slide assistant, built for speed and style.
+          </p>
+          <button className="primary-btn" onClick={() => navigate("/upload")}>
+            Get Started
+          </button>
+        </div>
+        <div className="hero-img">
+          <img src="/assets/pdftopptimg.jpeg" alt="Slide Preview" />
         </div>
       </header>
 
