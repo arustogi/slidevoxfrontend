@@ -4,7 +4,7 @@
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
-import pdfToPptImage from "../assets/pdftopptimg.jpeg";
+import pdfToPptImage from "./assets/pdftopptimg.jpeg";
 
 function Home() {
   const navigate = useNavigate();
