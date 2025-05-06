@@ -1,157 +1,31 @@
-
-
-/* Full-page gradient background */
 body, html {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #4f46e5, #a782e0, #fff3e0);
-  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  color: #1f2937;
 }
 
-/* 🔹 Navigation Bar */
 .navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 5%;
-  background: #ffffff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 10;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #4f46e5;
+  color: #2563eb;
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-/* Make the sign-out button match the style of the site */
 .login-btn {
-  background: #4f46e5;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-left: 1rem;
-}
-
-.login-btn:hover {
-  background: #3b36c3;
-}
-
-/* 🔹 Main App Container */
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  /* Leaves space for fixed navbar so content isn't hidden behind it */
-  padding-top: 70px;
-}
-
-/* 🔹 Upload Section */
-.upload-section {
-  /* Centers horizontally and adds top margin to position below the navbar */
-  margin: 120px auto 0 auto;
-  max-width: 500px;
-  width: 90%;
-  background: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.upload-section h1 {
-  margin-bottom: 20px;
-}
-
-/* 🔹 File Input */
-.file-input {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-  background: #f8f8f8;
-  border: 2px dashed #bbb;
-  cursor: pointer;
-  border-radius: 10px;
-  width: 100%;
-  font-size: 1rem;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.file-input:hover {
-  background: #e8e8e8;
-}
-
-.file-input input {
-  display: none;
-}
-
-/* 🔹 Email Input */
-.email-input {
-  width: 100%;
-  padding: 12px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  box-sizing: border-box;
-}
-
-/* 🔹 Upload Button */
-button {
-  display: block;
-  margin: 0 auto;
-  padding: 12px 20px;
-  width: 100%;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 8px;
-  background: #4f46e5;
+  background-color: #2563eb;
   color: white;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-button:hover {
-  background: #3b36c3;
-}
-
-button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-/* 🔹 Status Messages */
-.message {
-  margin-top: 15px;
-  font-weight: bold;
-  color: #2d7d46;
-}
-
-.message.error {
-  color: #d9534f;
-}
-
-/* 🔹 Link Styling */
-a {
-  color: #4f46e5;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a:hover {
-  text-decoration: underline;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
 }
