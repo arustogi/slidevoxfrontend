@@ -52,7 +52,7 @@ function Home() {
        <header className="hero" id="hero">
         <div className="hero-text">
           <h1 className="hero-title neon-text">
-            Instantly Convert PDFs to Presentations
+            Instantly Convert PDFs to Presentations and Videos
           </h1>
           <p className="hero-subtitle animated-text">
             Your AI slide assistant, built for speed and style.
