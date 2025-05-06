@@ -32,6 +32,7 @@ body {
   flex-direction: column;
   justify-content: flex-start; /* aligns text to top */
   padding-top: 20px;           /* nudges it up visually */
+  margin-top: -40px;
 }
 
 .hero-img {
@@ -39,6 +40,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: -40px;
 }
 
 .hero-img img {
