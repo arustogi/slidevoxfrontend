@@ -130,6 +130,14 @@ body {
   flex-wrap: wrap;
 }
 
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
 .pricing-card {
   background: white;
   border: 2px solid #bada55;
@@ -149,6 +157,12 @@ body {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 20px;
+}
+
+.pricing-card.best-value {
+  border: 3px solid #bada55;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
