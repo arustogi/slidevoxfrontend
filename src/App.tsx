@@ -239,7 +239,7 @@ useEffect(() => {
       </nav>
 
       <main>
-        <div className="hero">
+        {/* <div className="hero">
           <div className="hero-text">
             <h1 className="hero-title neon-text">Turn PDFs into Presentations</h1>
             <p className="hero-subtitle animated-text">
@@ -256,6 +256,43 @@ useEffect(() => {
           </div>
           <div className="hero-img">
             <img src="/hero-graphic.png" alt="Presentation mockup" />
+          </div>
+        </div> */}
+
+
+        <div className="profile-section">
+          <div className="profile-header">
+            <img
+              src="/default-avatar.png"
+              alt="User Avatar"
+              className="profile-avatar"
+            />
+            <div className="profile-info">
+              <h2 className="profile-name">[User Name]</h2>
+              <p className="profile-dob">Date of Birth: [MM/DD/YYYY]</p>
+              <p className="profile-plan">Membership Plan: [Plan Name]</p>
+            </div>
+          </div>
+
+          <div className="upload-history">
+            <h3>Previous Uploads</h3>
+            <ul className="upload-list">
+              <li className="upload-item">
+                <span className="upload-filename">example-report.pdf</span>
+                <div className="upload-links">
+                  <a href="#" className="download-link">Download Video</a>
+                  <a href="#" className="download-link">Download PPT</a>
+                </div>
+              </li>
+              <li className="upload-item">
+                <span className="upload-filename">project-slides.pdf</span>
+                <div className="upload-links">
+                  <a href="#" className="download-link">Download Video</a>
+                  <a href="#" className="download-link">Download PPT</a>
+                </div>
+              </li>
+              {/* Add more upload items as needed */}
+            </ul>
           </div>
         </div>
 
