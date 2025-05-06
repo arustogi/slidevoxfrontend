@@ -11,7 +11,7 @@ import { useAuthenticator, Authenticator } from "@aws-amplify/ui-react";
 import { fetchAuthSession, getCurrentUser } from "aws-amplify/auth";
 import { useState, useEffect } from "react";
 
-import UploadPage from "./UploadPage";
+//import UploadPage from "./UploadPage";
 import ProfilePage from "./ProfilePage";
 import Home from "./Home";
 import "./App.css";
