@@ -1,3 +1,126 @@
+// import { useAuthenticator, Authenticator } from "@aws-amplify/ui-react";
+// import "./App.css";
+// import { useState } from "react";
+
+// const API_URL = "https://215lhsh6ie.execute-api.us-east-2.amazonaws.com/v1/upload";
+
+// function UploadPage() {
+//   const { signOut } = useAuthenticator();
+//   const [file, setFile] = useState<File | null>(null);
+//   const [email, setEmail] = useState<string>("");
+//   const [uploading, setUploading] = useState(false);
+//   const [message, setMessage] = useState("");
+//   const [fileUrl, setFileUrl] = useState("");
+
+//   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+//     if (event.target.files && event.target.files.length > 0) {
+//       setFile(event.target.files[0]);
+//       setMessage("");
+//       setFileUrl("");
+//     }
+//   };
+
+//   const uploadFile = async () => {
+//     if (!file || !email) {
+//       alert("Please select a PDF file and enter an email address.");
+//       return;
+//     }
+
+//     setUploading(true);
+//     setMessage("");
+
+//     try {
+//       const response = await fetch(API_URL, {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/pdf",
+//           "x-api-key": "CAaJOxCLmS9S8vwiI1d3s9JnVJmJ6Z6V4oqymjdx",
+//           "x-user-email": email.trim(),
+//         },
+//         body: file,
+//       });
+
+//       const responseText = await response.text();
+//       console.log("Raw API Response:", responseText);
+
+//       let result;
+//       try {
+//         result = JSON.parse(responseText);
+//       } catch (error) {
+//         throw new Error("Failed to parse JSON response");
+//       }
+
+//       if (response.ok) {
+//         setMessage("✅ Upload successful!");
+//         setFileUrl(result.file_url);
+//       } else {
+//         setMessage(`❌ Upload failed: ${result.error || "Unknown error"}`);
+//       }
+//     } catch (error) {
+//       console.error("⚠️ Error uploading file:", error);
+//       setMessage(`⚠️ Error uploading file: ${error}`);
+//     }
+
+//     setUploading(false);
+//   };
+
+//   return (
+//     <div className="app-container">
+//       <nav className="navbar">
+//         <div className="logo">SlideVox</div>
+//         <button className="login-btn" onClick={signOut}>Sign Out</button>
+//       </nav>
+
+//       <div className="upload-section">
+//         <h1>Upload Your PDF</h1>
+
+//         <label className="file-input">
+//           <input type="file" accept="application/pdf" onChange={handleFileChange} />
+//           {file ? file.name : "Choose a PDF file"}
+//         </label>
+
+//         <input
+//           type="email"
+//           placeholder="Enter email to send PDF"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//           className="email-input"
+//         />
+
+//         <button onClick={uploadFile} disabled={!file || !email || uploading}>
+//           {uploading ? "Uploading..." : "Upload PDF"}
+//         </button>
+
+//         {message && <p className="message">{message}</p>}
+
+//         {fileUrl && (
+//           <p>
+//             ✅ <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+//               View Uploaded File
+//             </a>
+//           </p>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <Authenticator>
+//       <UploadPage />
+//     </Authenticator>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
 
 
 
@@ -108,54 +231,65 @@ useEffect(() => {
   };
   
 
-return (
-  <div className="app-container">
-    <nav className="navbar">
-      <div className="logo">SlideVox</div>
-      <button className="login-btn" onClick={signOut}>Sign Out</button>
-    </nav>
+  return (
+    <div className="app-container">
+      <nav className="navbar">
+        <div className="logo">SlideVox</div>
+        <button className="login-btn" onClick={signOut}>Sign Out</button>
+      </nav>
 
-    <main>
-      <div className="user-profile">
-        <h2>User Profile</h2>
-        <p><strong>Email:</strong> {email}</p>
-        <p><strong>Plan:</strong> Premium (changeable later)</p>
-        <div className="uploads-section">
-          <h3>Previous Uploads</h3>
-          <ul>
-            <li><a href="#">Converted File 1</a></li>
-            <li><a href="#">Converted File 2</a></li>
-          </ul>
+      <main>
+        <div className="hero">
+          <div className="hero-text">
+            <h1 className="hero-title neon-text">Turn PDFs into Presentations</h1>
+            <p className="hero-subtitle animated-text">
+              Smart, fast, and on-brand — SlideVox transforms your content instantly.
+            </p>
+            <button
+              className="primary-btn"
+              onClick={() =>
+                document.querySelector(".upload-section")?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              Get Started
+            </button>
+          </div>
+          <div className="hero-img">
+            <img src="/hero-graphic.png" alt="Presentation mockup" />
+          </div>
         </div>
-      </div>
 
-      <div className="upload-section">
-        <h1>Upload Your PDF</h1>
-        <label className="file-input">
-          <input
-            type="file"
-            accept="application/pdf"
-            onChange={handleFileChange}
-            disabled={uploading}
-          />
-          {file ? file.name : "Choose a PDF file"}
-        </label>
+        <div className="upload-section">
+          <h1>Upload Your PDF</h1>
 
-        <button onClick={uploadFile} disabled={!file || uploading}>
-          {uploading ? "Uploading..." : "Upload PDF"}
-        </button>
+          <label className="file-input">
+            <input
+              type="file"
+              accept="application/pdf"
+              onChange={handleFileChange}
+              disabled={uploading}
+            />
+            {file ? file.name : "Choose a PDF file"}
+          </label>
 
-        {message && <p className="message">{message}</p>}
+          <button onClick={uploadFile} disabled={!file || uploading}>
+            {uploading ? "Uploading..." : "Upload PDF"}
+          </button>
 
-        {fileUrl && (
-          <p>
-            ✅ <a href={fileUrl} target="_blank" rel="noopener noreferrer">View Uploaded File</a>
-          </p>
-        )}
-      </div>
-    </main>
-  </div>
-);
+          {message && <p className="message">{message}</p>}
+
+          {fileUrl && (
+            <p>
+              ✅{" "}
+              <a href={fileUrl} target="_blank" rel="noopener noreferrer">
+                View Uploaded File
+              </a>
+            </p>
+          )}
+        </div>
+      </main>
+    </div>
+  );
 }
 
 function App() {
@@ -168,13 +302,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
