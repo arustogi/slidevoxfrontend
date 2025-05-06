@@ -77,6 +77,22 @@ body {
   background-color: #c8ce59;
 }
 
+.login-btn {
+  background-color: #bada55;
+  color: black;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #c8ce59;
+}
+
 /* .hero-img img {
   max-width: 420px;
   border-radius: 12px;
