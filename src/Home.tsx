@@ -3,6 +3,9 @@
 
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+
+import pdfToPptImage from "../assets/pdftopptimg.jpeg";
+
 function Home() {
   const navigate = useNavigate();
 
@@ -59,7 +62,8 @@ function Home() {
           </button>
         </div>
         <div className="hero-img">
-          <img src="/assets/pdftopptimg.jpeg" alt="Slide Preview" />
+          {/* <img src="/assets/pdftopptimg.jpeg" alt="Slide Preview" /> */}
+          <img src={pdfToPptImage} alt="Slide Preview" />
         </div>
       </header>
 
@@ -80,6 +84,10 @@ function Home() {
           <div className="feature-card">
             <h3>Collaboration</h3>
             <p>Work with your team in real-time and gather feedback instantly.</p>
+          </div>
+          <div className="feature-card">
+            <h3>Cloud-Based Access</h3>
+            <p>Access your presentations anytime, anywhere with secure cloud sync.</p>
           </div>
         </div>
       </section>
